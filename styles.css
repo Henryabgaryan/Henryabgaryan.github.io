@@ -53,3 +53,23 @@ input, textarea {
     width: 100%; /* Makes the button wider and more prominent */
 }
 
+
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+    background: url('background-image.jpg') no-repeat center center/cover; /* Replace 'background-image.jpg' with your actual image */
+    color: white;
+    position: relative;
+    height: 100vh; /* Sets the height of the hero section to be full viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 5px solid #fff;
+}
