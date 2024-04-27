@@ -3,66 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Henrik Abgaryan's Portfolio</title>
+    <title>Identity Protocol</title>
+    <!-- Link to the CSS file -->
     <link rel="stylesheet" href="style.css">
+    <!-- Link to Font Awesome for icons if you are using that -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Henrik Abgaryan</h1>
-            <p>PhD Candidate in Computer Science & Machine Learning Scientist</p>
-        </header>
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-        <main>
-            <section id="about" class="card">
-                <h2>About Me</h2>
-                <p>Specializing in AI, deep learning, and computational problem solving, I am currently a PhD student at Lamsade Lab, Paris, exploring advanced techniques in AI and machine learning.</p>
-            </section>
-            <section id="experience" class="card">
-                <h2>Professional Experience</h2>
-                <div class="job">
-                    <h3>Picsart</h3>
-                    <p>Machine Learning Scientist, AI Department (2021 - 2023)</p>
-                    <ul>
-                        <li>Developed state-of-the-art image synthesis models.</li>
-                        <li>Published research on model efficiency and accuracy improvements.</li>
-                    </ul>
-                </div>
-                <div class="job">
-                    <h3>American University of Armenia</h3>
-                    <p>Teaching Assistant (2021-2022)</p>
-                    <ul>
-                        <li>Conducted problem-solving sessions and graded assignments for courses in data visualization and causal inference.</li>
-                    </ul>
-                </div>
-            </section>
-            <section id="education" class="card">
-                <h2>Education</h2>
-                <p>PhD in Computer Science, Lamsade Lab, PSL Dauphine, Paris, France (2023 - Present)</p>
-                <p>MSc in AI Systems, PSL Dauphine, Paris, France</p>
-                <p>BSc in Computer Science, American University of Armenia</p>
-            </section>
-            <section id="projects" class="card">
-                <h2>Projects & Research</h2>
-                <p>Master’s Thesis: "Optimization and Fine Tuning of Large Text to Image Models"</p>
-                <p>Research in graph-based algorithms for job scheduling and resource allocation.</p>
-            </section>
-            <section id="contact" class="card">
-                <h2>Contact Me</h2>
-                <p>Email: <a href="mailto:henri.abgaryan@gmail.com">henri.abgaryan@gmail.com</a></p>
-            </section>
-        </main>
-        <footer>
-            <p>&copy; 2024 Henrik Abgaryan. All rights reserved.</p>
-        </footer>
-    </div>
+<audio id="typingSound" src="typing-sound.mp3" preload="auto"></audio>
+
+
+<div class="container">
+
+
+    <h1 id="loadingH1"><span><i class="fa fa-cogs"></i></span> RUNNING IDENTITY PROTOCOL<span id="loading">.</span></h1>
+    <div class="img-container">
+       <div id="identity-results">
+          <h1 id="greeting"></h1>
+          <p id="message"></p>
+       </div>
+          <h3 id="loadingMessage2">LOADING RESUME<span id="alpha-loading"></span>.</h3>
+       </div>
+       <div id="resume">
+          <h3 id="name"></h3>
+          <h3 id="alias"></h3> 
+          <h3 id="occupation"></h3>
+          <div id="supervisor"></div>
+
+          <br>
+          <i id="front-end-span"></i><h3 id="front-end" class="inline"></h3>
+             <h4 id="js-frameworks" class="sub-item"></h4>
+             <h4 id="js-libs" class="sub-item"></h4>
+             <h4 id="css-frameworks" class="sub-item"></h4>
+             <h4 id="css-pre" class="sub-item"></h4>
+             <h4 id="front-end-animation" class="sub-item"></h4>
+          <br>
+          <i id="cms-span"></i><h3 id="CMS-development" class="inline"></h3>
+             <h4 id="wordpress" class="sub-item"></h4>
+          <br>
+          <i id="design-span"></i><h3 id="design" class="inline"></h3>
+             <h4 id="web-design" class="sub-item"></h4>
+             <h4 id="branding" class="sub-item"></h4>
+             <h4 id="design-animation" class="sub-item"></h4>
+       </div>
+ </div>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+ <script src="animate.js"></script>
 </body>
 </html>

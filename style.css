@@ -1,97 +1,58 @@
-$black: #000;
-$blue: #00ebd4;
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap');
 
-@import url(https://fonts.googleapis.com/css?family=Share+Tech);
-$shareTech: "Share Tech";
-
-body{
-   background-color: $black;
+body {
+  background-color: #f5f5f5; /* Light grey mimicking old paper */
+  background-image: url('https://example.com/paper-texture.png'); /* Add your own texture URL */
+  background-size: cover;
+  color: #000; /* Black for ink-like text */
+  font-family: 'Courier Prime', monospace;
 }
 
-h1{
-   font-family: $shareTech;
-   animation: pulse .9s infinite;
-   color: $blue;
+h1 {
+  font-family: 'Courier Prime', monospace;
+  color: #000; /* Black text */
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1); /* Slight blur mimics ink spread */
+  animation: none;
 }
 
-#identity-results, #resume, #loading-alpha-div, #loadingH1, #loadingMessage2, #message{
-   margin-top: 20px;
-   font-family: $shareTech;
-   font-weight: 900;
-   font-size: 24px;
-   color: $blue;
-   animation: pulse .9s infinite;
+#identity-results, #resume, #loading-alpha-div, #loadingH1, #loadingMessage2, #message, i, .block, img, .sub-item, .inline {
+  font-family: 'Courier Prime', monospace;
+  font-weight: 900;
+  font-size: 24px;
+  color: #000; /* Black text */
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+  animation: none;
 }
 
-i{
-   font-size: 24px;
-   color: $blue;
-   animation: pulse .9s infinite;  
-}
-
-.block{
-   width: 50px;
-   height: 50px;
-   background-color: $black;
-}
-
-@keyframes pulse {
-   0% {
-    opacity: 1;
-  }
-   50% {
-    opacity: 0.8;
-  }
-  100% {
-    opacity: 1;
-  }
+.block {
+  width: 50px;
+  height: 50px;
+  background-color: #f5f5f5; /* Background matching the body */
 }
 
 .cursor:after {
-	content:"_";
-	opacity: 0;
-	animation: cursor 1s infinite;
-}
-.sign:before{
-   content: "> ";
-}
-@keyframes cursor {
-	0% {
-		opacity: 0;
-	}
-	40% {
-		opacity: 0;
-	}
-	50% {
-		opacity: 1;
-	}
-	90% {
-		opacity: 1;
-	}
-	100% {
-		opacity: 0;
-	}
+  content: "|";
+  opacity: 1;
+  animation: cursor-blink 0.5s step-end infinite;
 }
 
-#loading-alpha-div, .img-div{
-   display: none;
+@keyframes cursor-blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
 }
 
-img{
-   margin: 50px 0;
-   animation: pulse .9s infinite;
+#loading-alpha-div, .img-div, #loadingMessage2 {
+  display: none;
 }
 
-#loadingMessage2{
-   display: none;
+.sub-item {
+  margin-top: 20px;
+  margin-left: 40px;
 }
 
-.sub-item{
-   margin-top: 20px;
-   margin-left: 40px;
+.inline {
+  display: inline;
+  margin-left: 10px;
 }
 
-.inline{
-   display: inline;
-   margin-left: 10px;
-}
+
