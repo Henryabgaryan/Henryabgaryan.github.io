@@ -40,6 +40,11 @@ nav ul li a {
     color: white;
     padding: 10px 20px;
     display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #555;
 }
 
 main {
@@ -53,7 +58,9 @@ main {
     padding: 20px;
     background: #f9f9f9;
     border-left: 5px solid #0077cc;
-    animation: slideUp 0.5s ease-out;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideFadeIn 0.5s ease-out forwards;
 }
 
 .card h2 {
@@ -70,13 +77,13 @@ footer {
     width: 100%;
 }
 
-@keyframes slideUp {
-    from {
-        transform: translateY(20px);
+@keyframes slideFadeIn {
+    0% {
         opacity: 0;
+        transform: translateY(20px);
     }
-    to {
-        transform: translateY(0);
+    100% {
         opacity: 1;
+        transform: translateY(0);
     }
 }
