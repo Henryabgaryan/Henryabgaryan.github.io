@@ -19,3 +19,37 @@ footer {
 .card:hover {
     transform: scale(1.05);
 }
+
+.card {
+    margin-bottom: 20px;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.card img {
+    height: 200px; /* Adjust as necessary to maintain aspect ratio */
+    object-fit: cover;
+}
+
+
+.card {
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+
+input, textarea {
+    margin-bottom: 10px;
+}
+
+.btn-primary {
+    width: 100%; /* Makes the button wider and more prominent */
+}
+
