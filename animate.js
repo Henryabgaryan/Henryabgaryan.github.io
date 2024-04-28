@@ -24,7 +24,7 @@ var initProgram = setTimeout(function(){
     var $name = "NAME: Henrik Abgaryan";
     var $alias = "OCCUPATION: PHD Student at LAMSADE, Université Paris-Dauphine PSL"
     var $occupation  = "THESIS TOPIC: Graph Transformers, Deep Reinforcement Learning and Combinatorial Optimization";
-    var $supervisor = "SUPERVISOR: Tristan Cazenave, Ararat Harutyunyan at LAMSADE, Université Paris-Dauphine PSL";
+    var $supervisor = "SUPERVISORS: Tristan Cazenave, Ararat Harutyunyan at LAMSADE, Université Paris-Dauphine PSL";
 
     var $frontEnd  = "EDUCATION:";
       var $JSFrameworks = "2017 - 2021: BACHELOR OF COMPUTER SCIENCE AMERICAN UNIVERSITY OF ARMENIA";
@@ -32,7 +32,7 @@ var initProgram = setTimeout(function(){
       var $CSSFrameworks = "2022 - 2023: MASTERS OF COMPUTER SCIENCE M2 IASD, Université Paris-Dauphine PSL";
       var $CSSPre = "Internship: Optimization and Fine Tuning of Large Text to Image models";
       var $frontEndAnimation = "";
-    var $cmsDevelopment = "WORK EXPERIANCE";
+    var $cmsDevelopment = "WORK EXPERIANCE:";
       var $wordpress = "PICSART: MACHINE LEARNING SCIENTIST AT ARTIFICIAL INTELLIGENCE DEPARTMENT";
     var $design = "2024 PUBLICATIONS: Randomized Greedy Sampling for JSSP";
       var $webDesign = "ABSTRACT: The job shop scheduling problem (JSSP) is a fundamental challenge in the field of operations research and manufacturing, representing the task of optimally assigning a set of jobs to a limited number of machines to optimize one or more objectives, such as minimizing the total processing time or reducing the delay of jobs. In recent years, AI-driven methods have introduced new approaches to solving the JSSP. Continuous exploration in deep reinforcement learning (DRL) is currently concentrated on refining strategies to address the JSSP. Established DRL techniques mostly focus on better modeling and training of the Policy networks for solving JSSP problems. This paper explores the utilization of Policy networks in search algorithms. We propose two novel algorithms, Random Second Greedy Choice (RSGC) and Greedy Sampling (GS). RSGC and GS employ a randomized approach to consider alternative paths, deviating from the primary heuristic, while adjusting the probability of selecting these paths dynamically during the search process. Through experimentation, we show the effectiveness of the proposed algorithms in comparison to the usual greedy first choice inference technique and the usual sampling method.";
