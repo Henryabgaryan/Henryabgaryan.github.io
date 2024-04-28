@@ -55,4 +55,25 @@ h1 {
   margin-left: 10px;
 }
 
+.scrollable-gif {
+  position: absolute; /* Position relative to the nearest positioned ancestor (instead of positioned relative to the viewport, like fixed) */
+  right: 0;   /* Aligns the GIF to the right */
+  top: 0;     /* Aligns the GIF to the top */
+  z-index: 10; /* Keeps the GIF on top of other content */
+}
+.parent-container { /* this needs to be the direct parent element of your .scrollable-gif */
+  position: relative;
+}
+
+
+.scrollable-gif {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+@media (max-width: 768px) {
+  .scrollable-gif img {
+      width: 30px; /* Adjusts the size for smaller screens */
+  }
+}
 
