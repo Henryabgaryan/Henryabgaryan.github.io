@@ -36,7 +36,7 @@ var initProgram = setTimeout(function(){
       var $wordpress = "PICSART: MACHINE LEARNING SCIENTIST AT ARTIFICIAL INTELLIGENCE DEPARTMENT";
     var $design = "2024 PUBLICATIONS: Randomized Greedy Sampling for JSSP";
       var $webDesign = "ABSTRACT: The job shop scheduling problem (JSSP) is a fundamental challenge in the field of operations research and manufacturing, representing the task of optimally assigning a set of jobs to a limited number of machines to optimize one or more objectives, such as minimizing the total processing time or reducing the delay of jobs. In recent years, AI-driven methods have introduced new approaches to solving the JSSP. Continuous exploration in deep reinforcement learning (DRL) is currently concentrated on refining strategies to address the JSSP. Established DRL techniques mostly focus on better modeling and training of the Policy networks for solving JSSP problems. This paper explores the utilization of Policy networks in search algorithms. We propose two novel algorithms, Random Second Greedy Choice (RSGC) and Greedy Sampling (GS). RSGC and GS employ a randomized approach to consider alternative paths, deviating from the primary heuristic, while adjusting the probability of selecting these paths dynamically during the search process. Through experimentation, we show the effectiveness of the proposed algorithms in comparison to the usual greedy first choice inference technique and the usual sampling method.";
-      var $branding = "☕☕☕";
+      var $branding = "";
       var $designAnimation = "THATS IT FOR NOW...";
    
    function playTypingSound() {
@@ -297,16 +297,22 @@ var initProgram = setTimeout(function(){
                      }, 1500);
                }
          }
-         function initDesignAnimation(i){
+         function initDesignAnimation(i) {
             $('#design-animation').addClass("sign cursor").text($designAnimation.substring(0, i));
-               if(i < $designAnimation.length){
-                  setTimeout(function(){
-                      initDesignAnimation(i + 1);  
-                  }, 20);
-               }else{
-                  //$('#design-animation').removeClass("cursor");
-               }
-         }
+            if (i < $designAnimation.length) {
+                setTimeout(function() {
+                    initDesignAnimation(i + 1);
+                }, 20);
+            } else {
+                // Here, right before the final text, insert the GIF
+                $('#design-animation').append('<img src="coffee.gif" alt="Animated GIF" style="display:block; margin:auto;">');
+                setTimeout(function() {
+                  //   $('#design-animation').append('<div>THAT\'S IT FOR NOW...</div>'); // This will now add the text after the GIF
+                    $('#design-animation').removeClass("cursor");
+                }, 1500); // Delay the display of text to give attention to the GIF
+            }
+        }
+        
       }
    
    // function scrollToBottom() {
