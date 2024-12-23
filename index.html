@@ -3,59 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Identity Protocol</title>
-    <!-- Link to the CSS file -->
-<!--     <link rel="stylesheet" href="style_code.css"> -->
-    <link rel="stylesheet" href="style.css">
-
-    <!-- Link to Font Awesome for icons if you are using that -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <title>Henrik Abgaryan - PhD in AI</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<audio id="typingSound" src="typing-sound.mp3" preload="auto"></audio>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#landing">Home</a></li>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#cv">CV</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#news">AI News</a></li>
+        </ul>
+    </nav>
 
+    <!-- Landing Page -->
+    <header id="landing">
+        <div class="overlay"></div>
+        <div class="content">
+            <h1>Henrik Abgaryan</h1>
+            <p>PhD Student in Artificial Intelligence at PSL DAUPHINE</p>
+        </div>
+    </header>
 
-<div class="container">
+    <!-- About Me Section -->
+    <section id="about">
+        <h2>About Me</h2>
+        <p>
+            I am Henrik Abgaryan, a current PhD student specializing in Artificial Intelligence at Lamsade LAB, PSL DAUPHINE, Paris. My research focuses on applying advanced AI and ML methods to solve complex combinatorial optimization problems.
+        </p>
+        <h3>Research Interests</h3>
+        <ul>
+            <li>Reinforcement Learning (RL)</li>
+            <li>Large Language Models (LLMs)</li>
+            <li>Graph Neural Networks (GNNs)</li>
+            <li>Data-Centric AI</li>
+            <li>Combinatorial Optimization</li>
+        </ul>
+    </section>
 
-   <!-- Right side fixed-position GIF -->
-   <div class="fixed-gif">
-      <img src="code.gif" alt="Descriptive Alt Text">
-   </div>
-   <!-- <div id="gif-container">
-      <img src="coffee.gif" alt="Descriptive Alt Text" id="pre-final-gif" style="display: none;">
-  </div> -->
-    <h1 id="loadingH1"><span><i class="fa fa-cogs"></i></span> RUNNING IDENTITY PROTOCOL<span id="loading">.</span></h1>
-    <div class="img-container">
-       <div id="identity-results">
-          <h1 id="greeting"></h1>
-          <p id="message"></p>
-       </div>
-          <h3 id="loadingMessage2">LOADING RESUME<span id="alpha-loading"></span>.</h3>
-       </div>
-       <div id="resume">
-          <h3 id="name"></h3>
-          <h3 id="alias"></h3> 
-          <h3 id="occupation"></h3>
-          <div id="supervisor"></div>
+    <!-- CV Section -->
+    <section id="cv">
+        <h2>Curriculum Vitae</h2>
+        <iframe src="CV_Henrik_Abgaryan.pdf" width="100%" height="600px"></iframe>
+        <a href="CV_Henrik_Abgaryan.pdf" download class="download-btn">Download CV</a>
+    </section>
 
-          <br>
-          <i id="front-end-span"></i><h3 id="front-end" class="inline"></h3>
-             <h4 id="js-frameworks" class="sub-item"></h4>
-             <h4 id="js-libs" class="sub-item"></h4>
-             <h4 id="css-frameworks" class="sub-item"></h4>
-             <h4 id="css-pre" class="sub-item"></h4>
-             <h4 id="front-end-animation" class="sub-item"></h4>
-          <br>
-          <i id="cms-span"></i><h3 id="CMS-development" class="inline"></h3>
-             <h4 id="wordpress" class="sub-item"></h4>
-          <br>
-          <i id="design-span"></i><h3 id="design" class="inline"></h3>
-             <h4 id="web-design" class="sub-item"></h4>
-             <h4 id="branding" class="sub-item"></h4>
-             <h4 id="design-animation" class="sub-item"></h4>
-       </div>
- </div>
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
- <script src="animate.js"></script>
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="project-list">
+            <!-- Example Project -->
+            <div class="project-item">
+                <h3>Randomized Greedy Sampling for JSSP</h3>
+                <p>Co-authored paper submitted to NeurIPS 2024 Datasets and Benchmarks.</p>
+                <a href="#" target="_blank">Read More</a>
+            </div>
+            <!-- Add more projects similarly -->
+            <div class="project-item">
+                <h3>House Allocation with Randomly Generated Preference Lists</h3>
+                <p>Research project focusing on house allocation algorithms.</p>
+                <a href="#" target="_blank">Read More</a>
+            </div>
+            <div class="project-item">
+                <h3>Fireflies Curing Fault-Tolerance in Robotic Swarm Systems</h3>
+                <p>Literature survey on fault-tolerance mechanisms in robotic swarms.</p>
+                <a href="#" target="_blank">Read More</a>
+            </div>
+            <div class="project-item">
+                <h3>Community Detection in Mixed and Temporal Networks</h3>
+                <p>Literature survey on community detection algorithms.</p>
+                <a href="#" target="_blank">Read More</a>
+            </div>
+            <div class="project-item">
+                <h3>Graph Diameter Shrinking Approaches for Pseudo-Random Graphs</h3>
+                <p>Capstone project on graph diameter optimization.</p>
+                <a href="#" target="_blank">Read More</a>
+            </div>
+            <div class="project-item">
+                <h3>Optimization and Fine Tuning of Large Text to Image Models</h3>
+                <p>Master’s Thesis focusing on optimizing large text-to-image models.</p>
+                <a href="#" target="_blank">Read More</a>
+            </div>
+            <!-- Add more projects as needed -->
+        </div>
+    </section>
+
+    <!-- AI News Feed Section -->
+    <section id="news">
+        <h2>Latest AI News</h2>
+        <div id="news-feed">
+            <!-- News articles will be dynamically inserted here -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Henrik Abgaryan. All rights reserved.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="newsConfig.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
