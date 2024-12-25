@@ -1,110 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Henrik Abgaryan - PhD in AI</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Henrik Abgaryan</title>
+
+  <!-- Preconnect & dns-prefetch for AllOrigins (slightly faster fetch) -->
+  <link rel="preconnect" href="https://api.allorigins.win" />
+  <link rel="dns-prefetch" href="https://api.allorigins.win" />
+
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-    <!-- Navigation -->
-    <nav>
-        <ul>
-            <li><a href="#landing">Home</a></li>
-            <li><a href="#about">About Me</a></li>
-            <li><a href="#cv">CV</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#news">AI News</a></li>
-        </ul>
-    </nav>
+<body class="dark-mode">
+  <nav class="navbar">
+    <ul>
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#bio">Bio</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#talks">Talks</a></li>
+      <li><a href="#work">Work Experience</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#teaching">Teaching</a></li>
+      <li><a href="#ai-news">AI News</a></li>
+    </ul>
+  </nav>
 
-    <!-- Landing Page -->
-    <header id="landing">
-        <div class="overlay"></div>
-        <div class="content">
-            <h1>Henrik Abgaryan</h1>
-            <p>PhD Student in Artificial Intelligence at PSL DAUPHINE</p>
-        </div>
-    </header>
+  <!-- Star/Fog background (optional) -->
+  <div class="space-scene">
+    <div id="star-container"></div>
+    <div class="fog-layer fog-layer-1"></div>
+    <div class="fog-layer fog-layer-2"></div>
+    <div class="fog-layer fog-layer-3"></div>
+  </div>
 
-    <!-- About Me Section -->
-    <section id="about">
-        <h2>About Me</h2>
-        <p>
-            I am Henrik Abgaryan, a current PhD student specializing in Artificial Intelligence at Lamsade LAB, PSL DAUPHINE, Paris. My research focuses on applying advanced AI and ML methods to solve complex combinatorial optimization problems.
-        </p>
-        <h3>Research Interests</h3>
-        <ul>
-            <li>Reinforcement Learning (RL)</li>
-            <li>Large Language Models (LLMs)</li>
-            <li>Graph Neural Networks (GNNs)</li>
-            <li>Data-Centric AI</li>
-            <li>Combinatorial Optimization</li>
-        </ul>
+  <main>
+    <!-- HOME -->
+    <section id="home" class="fade-in">
+      <div id="siri-bubble-container">
+        <div id="siri-bubble"></div>
+      </div>
+
+      <div class="home-content">
+        <h1>Henrik Abgaryan</h1>
+        <p><a href="mailto:henri.abgaryan@gmail.com">henri.abgaryan@gmail.com</a></p>
+        <!-- Container for the typed quote -->
+        <p id="quote" style="margin-top: 1.5rem; font-style: italic;"></p>
+      </div>
     </section>
 
-    <!-- CV Section -->
-    <section id="cv">
-        <h2>Curriculum Vitae</h2>
-        <iframe src="CV_Henrik_Abgaryan.pdf" width="100%" height="600px"></iframe>
-        <a href="CV_Henrik_Abgaryan.pdf" download class="download-btn">Download CV</a>
+    <!-- BIO -->
+    <section id="bio" class="fade-in">
+      <h2>Bio</h2>
+      <p><strong>Hi I am a PhD Student at Lamsade LAB, PSL Dauphine, Paris, France.</strong></p>
+      <p> I am researching advanced machine learning techniques on NP-Hard combinatorial optimization problems. I specialize in advancing machine learning techniques to tackle NP-hard combinatorial optimization challenges. My background spans text-to-image synthesis, extensive R&D endeavors, teaching responsibilities, and industry roles in deep learning.</p>
+      <p><strong>Supervisors:</strong></p>
+      <ul>
+        <li>Tristan Cazenave (<a href="mailto:tristan.cazenave@lamsade.dauphine.fr">tristan.cazenave@lamsade.dauphine.fr</a>)</li>
+        <li>Ararat Harutyunyan (<a href="mailto:ararat.harutyunyan@lamsade.dauphine.fr">ararat.harutyunyan@lamsade.dauphine.fr</a>)</li>
+      </ul>
+      <p>2023 - Present</p>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="project-list">
-            <!-- Example Project -->
-            <div class="project-item">
-                <h3>Randomized Greedy Sampling for JSSP</h3>
-                <p>Co-authored paper submitted to NeurIPS 2024 Datasets and Benchmarks.</p>
-                <a href="#" target="_blank">Read More</a>
-            </div>
-            <!-- Add more projects similarly -->
-            <div class="project-item">
-                <h3>House Allocation with Randomly Generated Preference Lists</h3>
-                <p>Research project focusing on house allocation algorithms.</p>
-                <a href="#" target="_blank">Read More</a>
-            </div>
-            <div class="project-item">
-                <h3>Fireflies Curing Fault-Tolerance in Robotic Swarm Systems</h3>
-                <p>Literature survey on fault-tolerance mechanisms in robotic swarms.</p>
-                <a href="#" target="_blank">Read More</a>
-            </div>
-            <div class="project-item">
-                <h3>Community Detection in Mixed and Temporal Networks</h3>
-                <p>Literature survey on community detection algorithms.</p>
-                <a href="#" target="_blank">Read More</a>
-            </div>
-            <div class="project-item">
-                <h3>Graph Diameter Shrinking Approaches for Pseudo-Random Graphs</h3>
-                <p>Capstone project on graph diameter optimization.</p>
-                <a href="#" target="_blank">Read More</a>
-            </div>
-            <div class="project-item">
-                <h3>Optimization and Fine Tuning of Large Text to Image Models</h3>
-                <p>Master’s Thesis focusing on optimizing large text-to-image models.</p>
-                <a href="#" target="_blank">Read More</a>
-            </div>
-            <!-- Add more projects as needed -->
-        </div>
+    <!-- PUBLICATIONS -->
+    <section id="publications" class="fade-in">
+      <h2>Publications</h2>
+      <ul>
+        <li>
+          <strong>Randomized Greedy Sampling for JSSP</strong><br />
+          H. Abgaryan, T. Cazenave<br />
+          <em>The 18th Learning and Intelligent Optimization Conference</em>, 2025.
+          <a href="https://link.springer.com/book/9783031756221" target="_blank">[PDF]</a>
+        </li>
+        <li>
+          <strong>LLMs can Schedule</strong><br />
+          H. Abgaryan, A. Harutyunyan, T. Cazenave<br />
+          <em>arXiv preprint arXiv:2408.06993</em>, 2024.
+          <a href="https://arxiv.org/pdf/2408.06993" target="_blank">[PDF]</a>
+        </li>
+        <li>
+          <strong>House Allocation with Randomly Generated Preference Lists</strong><br />
+          H. Abgaryan, A. Harutyunyan, T.N. Le<br />
+          2022.
+          <a
+            href="https://hal.science/hal-03779779v1/file/House_allocation_with_random_lists_with_Spring_Questions_and_conflict_of_interest.pdf"
+            target="_blank"
+            >[PDF]</a
+          >
+        </li>
+        <li>
+          <strong>STARJOB: Dataset for LLM-Driven Job Shop Scheduling</strong><br />
+          H. Abgaryan, A. Harutyunyan, T. Cazenave<br />
+          2023.
+          <a href="https://openreview.net/pdf?id=z4Ho599uOL" target="_blank">[PDF]</a>
+        </li>
+      </ul>
     </section>
 
-    <!-- AI News Feed Section -->
-    <section id="news">
-        <h2>Latest AI News</h2>
-        <div id="news-feed">
-            <!-- News articles will be dynamically inserted here -->
-        </div>
+    <!-- TALKS -->
+    <section id="talks" class="fade-in">
+      <h2>Talks</h2>
+      <ul>
+        <li>
+          Presented <em>Randomized Greedy Search for JSSP</em> at the
+          <strong>18th Learning and Intelligent Optimization Conference</strong><br />
+          June 11, 2024 | Ischia, Italy
+        </li>
+        <li>
+          Speaker at <strong>Lamsade Doctoral Spring School</strong><br />
+          École du Luat, Écouen-Ezanville, France
+        </li>
+      </ul>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 Henrik Abgaryan. All rights reserved.</p>
-    </footer>
+    <!-- WORK EXPERIENCE -->
+    <section id="work" class="fade-in">
+      <h2>Work Experience</h2>
+      <ul>
+        <li>
+          <strong>PICSART</strong><br />
+          <em>Machine Learning Scientist at Artificial Intelligence Department</em><br />
+          2021 - 2023 
+          <ul>
+            <li>Over 35 projects in production and over 10 in R&D.</li>
+            <li>Working on Text-to-Image Synthesis, Image to Image Synthesis, SOTA model finetuning.</li>
+            <li>Large-Scale Training, GANs and VAEs.</li>
+            <li>Experienced with open-source AI models, particularly in image generation (e.g., Stable Diffusion).</li>
+            <li>Utilized techniques like LoRA for model optimization.</li>
+            <li>Extensive experience with AI frameworks, including TensorFlow and PyTorch.</li>
+            <li>Proficient in Python and advanced deep learning techniques.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Synergy International Systems</strong><br />
+          <em>6 Months Intensive Summer School Internship</em><br />
+          2018 
+          <ul>
+            <li>Backend development using JAVA and Python frameworks.</li>
+            <li>Database development using MS-SQL.</li>
+            <li>Object-Oriented Programming (OOP).</li>
+          </ul>
+        </li>
+    
+      </ul>
+    </section>
 
-    <!-- Scripts -->
-    <script src="newsConfig.js"></script>
-    <script src="main.js"></script>
+    <!-- EDUCATION -->
+    <section id="education" class="fade-in">
+      <h2>Education</h2>
+      <ul>
+        <li>
+          <strong>Master's of Computer Science</strong><br />
+          M2 AI Systems and Data, PSL Dauphine<br />
+          Paris, France | 2022 - 2023
+          <ul>
+            <li>One of Top 50 of world universities according to Shanghai Ranking.</li>
+            <li>Master’s Thesis: “Optimization and Fine Tuning of Large Text to Image Models”.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Bachelor of Computer Science</strong><br />
+          American University of Armenia<br />
+          2017 - 2021
+          <ul>
+            <li>Literature Survey: Fireflies curing Fault-Tolerance in Robotic Swarm Systems.</li>
+            <li>Literature Survey: Community Detection in Mixed and Temporal Networks.</li>
+            <li>Capstone: Graph Diameter Shrinking Approaches for Pseudo-Random Graphs.</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <!-- TEACHING -->
+    <section id="teaching" class="fade-in">
+      <h2>Teaching</h2>
+      <ul>
+        <li>
+          <strong>Teaching Associate:</strong> Introduction to ML<br />
+          M1 MIAGE Apprentissage, Paris Dauphine PSL<br />
+          September 2024 - February 2025 | Paris, France
+        </li>
+        <li>
+          <strong>Teaching Associate:</strong> Artificial Intelligence<br />
+          M1 MIAGE Apprentissage, Paris Dauphine PSL<br />
+          January 2024 - May 2025 | Paris, France
+        </li>
+        <li>
+          <strong>Teaching Associate:</strong> Outils en informatique (Excel)<br />
+          Paris Dauphine PSL<br />
+          January 2024 - May 2025 | Paris, France
+        </li>
+        <li>
+          <strong>Teaching Associate:</strong> Outils en informatique (Internet, HTML)<br />
+          Paris Dauphine PSL<br />
+          January 2024 - May 2025 | Paris, France
+        </li>
+        <li>
+          <strong>Teaching Associate:</strong> Causal Inference<br />
+          American University of Armenia<br />
+          January 2022 - May 2022 | Yerevan, Armenia
+        </li>
+        <li>
+          <strong>Teaching Assistant:</strong> Data Visualization<br />
+          American University of Armenia<br />
+          September 2021 - December 2021 | Yerevan, Armenia
+        </li>
+      </ul>
+    </section>
+
+    <!-- AI NEWS SECTION -->
+    <section id="ai-news" class="fade-in">
+      <h2>AI News</h2>
+      <p>Latest AI news from around the web</p>
+      <ul id="ai-news-list"></ul>
+    </section>
+  </main>
+
+  <script src="main.js"></script>
 </body>
 </html>
