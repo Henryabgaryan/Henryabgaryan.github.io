@@ -2,17 +2,25 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!-- Important for responsive scaling -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Henrik Abgaryan</title>
 
   <!-- Preconnect & dns-prefetch for AllOrigins (slightly faster fetch) -->
   <link rel="preconnect" href="https://api.allorigins.win" />
   <link rel="dns-prefetch" href="https://api.allorigins.win" />
 
+  <!-- Link to external CSS -->
   <link rel="stylesheet" href="style.css" />
 </head>
-<body class="dark-mode">
+<body>
   <nav class="navbar">
+    <div class="menu-icon" id="menuIcon">
+      <!-- 3 bars for the hamburger -->
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+      <div class="bar3"></div>
+    </div>
     <ul>
       <li><a href="#home" class="active">Home</a></li>
       <li><a href="#bio">Bio</a></li>
@@ -25,7 +33,7 @@
     </ul>
   </nav>
 
-  <!-- Star/Fog background (optional) -->
+  <!-- (Optional) Background layers -->
   <div class="space-scene">
     <div id="star-container"></div>
     <div class="fog-layer fog-layer-1"></div>
@@ -52,7 +60,12 @@
     <section id="bio" class="fade-in">
       <h2>Bio</h2>
       <p><strong>Hi I am a PhD Student at Lamsade LAB, PSL Dauphine, Paris, France.</strong></p>
-      <p> I am researching advanced machine learning techniques on NP-Hard combinatorial optimization problems. I specialize in advancing machine learning techniques to tackle NP-hard combinatorial optimization challenges. My background spans text-to-image synthesis, extensive R&D endeavors, teaching responsibilities, and industry roles in deep learning.</p>
+      <p>
+        I am researching advanced machine learning techniques on NP-Hard combinatorial optimization problems. 
+        I specialize in advancing machine learning techniques to tackle NP-hard combinatorial optimization challenges. 
+        My background spans text-to-image synthesis, extensive R&D endeavors, teaching responsibilities, 
+        and industry roles in deep learning.
+      </p>
       <p><strong>Supervisors:</strong></p>
       <ul>
         <li>Tristan Cazenave (<a href="mailto:tristan.cazenave@lamsade.dauphine.fr">tristan.cazenave@lamsade.dauphine.fr</a>)</li>
@@ -140,7 +153,6 @@
             <li>Object-Oriented Programming (OOP).</li>
           </ul>
         </li>
-    
       </ul>
     </section>
 
@@ -215,6 +227,7 @@
     </section>
   </main>
 
+  <!-- Link to external JS -->
   <script src="main.js"></script>
 </body>
 </html>
