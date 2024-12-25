@@ -1,6 +1,6 @@
-/* Add scroll-padding so section headers don't hide behind sticky nav */
+/* Smooth scroll + offset so section headers aren't covered by sticky nav */
 html {
-    scroll-padding-top: 200px;
+    scroll-padding-top: 15vh;
     scroll-behavior: smooth;
   }
   
@@ -10,12 +10,12 @@ html {
     box-sizing: border-box;
   }
   
+  /* BODY */
   body {
     background-color: #fdfdfd;
     color: #1c1c1e;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      "Helvetica Neue", Arial, sans-serif;
-    font-size: 18px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 1.125rem; /* 18px => 1.125rem if root is 16px */
     line-height: 1.6;
     overflow-x: hidden;
   }
@@ -23,21 +23,25 @@ html {
   /* NAVBAR */
   .navbar {
     background-color: #ffffff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
     z-index: 100;
     padding: 1rem 0;
     display: flex;
     justify-content: center;
+    align-items: center;
   }
   
+  /* Remove the bullets (dots) in the top bar */
   .navbar ul {
+    list-style: none; 
     display: flex;
-    list-style: none;
+    flex-direction: row;
     gap: 2rem;
   }
   
+  /* We can unify link styles */
   .navbar a {
     padding: 0.5rem 0.3rem;
     color: #1c1c1e;
@@ -52,6 +56,34 @@ html {
     color: #34c759;
   }
   
+  /* HAMBURGER MENU ICON (hidden on large screens) */
+  .menu-icon {
+    display: none; 
+    cursor: pointer;
+    margin-right: 1rem;
+  }
+  
+  .menu-icon .bar1,
+  .menu-icon .bar2,
+  .menu-icon .bar3 {
+    width: 1.5rem;
+    height: 0.2rem;
+    background-color: #1c1c1e;
+    margin: 0.25rem 0;
+    transition: 0.4s;
+  }
+  
+  /* Toggle .change class for an X animation if desired */
+  .change .bar1 {
+    transform: rotate(-45deg) translate(-0.35rem, 0.35rem);
+  }
+  .change .bar2 {
+    opacity: 0;
+  }
+  .change .bar3 {
+    transform: rotate(45deg) translate(-0.35rem, -0.35rem);
+  }
+  
   /* MAIN CONTENT */
   main {
     padding: 2rem 1rem;
@@ -61,9 +93,9 @@ html {
   section {
     position: relative;
     margin: 4rem auto;
-    max-width: 800px;
+    max-width: 70%; /* scaled fluid width */
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(1.25rem); /* ~20px => 1.25rem */
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
     background-color: transparent;
   }
@@ -75,7 +107,7 @@ html {
   }
   
   /* HOME SECTION */
-  section#home {
+  #home {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -95,23 +127,22 @@ html {
     font-weight: 400;
   }
   
-  /* BUBBLE CONTAINER */
+  /* BUBBLE CONTAINER:
+     Make it smaller using clamp() values 
+     so it remains smaller initially yet can scale if viewport grows.
+  */
   #siri-bubble-container {
     position: absolute;
     top: 5%;
     left: 50%;
-    width: 250px;
-    height: 250px;
+    /* Adjusted clamp sizes to start smaller than before */
+    width: clamp(6rem, 15vw, 16rem);
+    height: clamp(6rem, 15vw, 16rem);
     transform: translateX(-50%);
     z-index: 1000;
   }
   
-  /* The bubble:
-     - Floats up/down
-     - Has a shape-morph
-     - Gradual background transitions
-     - "Pulled" corners when mousedown/mousemove => modifies border-radius
-  */
+  /* The bubble */
   #siri-bubble {
     width: 100%;
     height: 100%;
@@ -121,25 +152,24 @@ html {
       floatBubble 1s ease-in-out infinite alternate,
       bubbleLiquidMorph 7s ease-in-out infinite;
     transition:
-      background 10s ease,   /* gradient transitions */
-      border-radius 0.95s ease; 
+      background 10s ease,
+      border-radius 0.95s ease;
     overflow: hidden;
     cursor: pointer;
   }
   
-  /* Stop animations if "dragging" (pulled) */
   #siri-bubble.dragging {
     animation: none;
     transition: none;
   }
   
-  /* Gentle float up and down (20px amplitude) */
+  /* Gentle float up & down */
   @keyframes floatBubble {
-    0%   { transform: translateY(0);   }
-    100% { transform: translateY(20px); }
+    0%   { transform: translateY(0); }
+    100% { transform: translateY(1.25rem); }
   }
   
-  /* Slower, more dramatic shape morphing for watery effect */
+  /* Liquid shape morphing */
   @keyframes bubbleLiquidMorph {
     0% {
       transform: scale(1) rotate(0deg);
@@ -167,15 +197,15 @@ html {
   h2 {
     margin-bottom: 1.5rem;
     font-size: 2.2rem;
-    border-bottom: 2px solid #34c759;
+    border-bottom: 0.125rem solid #34c759;
     display: inline-block;
     padding-bottom: 0.3rem;
     font-weight: 400;
   }
   
-  /* LISTS */
+  /* LISTS IN CONTENT SECTIONS */
   ul {
-    list-style-type: disc;
+    list-style-type: disc; /* keep bullets for normal sections */
     padding-left: 1.5rem;
     margin-top: 1rem;
   }
@@ -199,7 +229,7 @@ html {
   /* AI NEWS GRID */
   #ai-news-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
     gap: 1rem;
     list-style: none;
     padding-left: 0;
@@ -208,17 +238,19 @@ html {
   
   #ai-news-list li {
     background: rgba(255, 255, 255, 0.7);
-    border-radius: 6px;
+    border-radius: 6%;
     padding: 1rem;
     text-align: center;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.1);
     transition: background 0.3s;
   }
   
+  /* AI news images */
   #ai-news-list img {
-    max-width: 100%;
-    display: block;
-    margin: 0 auto 0.5rem auto;
+    width: 10%;
+    height: auto;
+    object-fit: cover;
+    margin-right: 1rem;
     transition: filter 0.3s ease;
     cursor: pointer;
     filter: none;
@@ -233,15 +265,32 @@ html {
     display: none !important;
   }
   
-  /* Responsive */
+  /* ========== RESPONSIVE (TABLET & MOBILE) ========== */
   @media (max-width: 768px) {
+    /* Show the menu-icon */
+    .menu-icon {
+      display: block;
+    }
+    
+    /* By default, we want a smooth expand/collapse for the nav. */
     .navbar ul {
+      /* Start collapsed */
       flex-direction: column;
       gap: 1rem;
+      max-height: 0;
+      overflow: hidden;
+      /* The transition for a smooth open/close */
+      transition: max-height 0.4s ease;
+    }
+  
+    /* When .navbar has class .open, let the ul expand to some large limit */
+    .navbar.open ul {
+      max-height: 30rem; /* enough to show all items */
     }
   
     section {
       margin: 2rem 1rem;
+      max-width: 90%;
     }
   
     .home-content h1 {
@@ -254,11 +303,6 @@ html {
   
     h2 {
       font-size: 1.8rem;
-    }
-  
-    #siri-bubble-container {
-      width: 800px;
-      height: 800px;
     }
   }
   
