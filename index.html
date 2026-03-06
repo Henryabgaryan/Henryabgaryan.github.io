@@ -1,22 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <!-- Important for responsive scaling -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Henrik Abgaryan</title>
 
-  <!-- Preconnect & dns-prefetch for AllOrigins (slightly faster fetch) -->
   <link rel="preconnect" href="https://api.allorigins.win" />
   <link rel="dns-prefetch" href="https://api.allorigins.win" />
 
-  <!-- Link to external CSS -->
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
   <nav class="navbar">
     <div class="menu-icon" id="menuIcon">
-      <!-- 3 bars for the hamburger -->
       <div class="bar1"></div>
       <div class="bar2"></div>
       <div class="bar3"></div>
@@ -26,24 +24,24 @@
       <li><a href="#bio">Bio</a></li>
       <li><a href="#publications">Publications</a></li>
       <li><a href="#talks">Talks</a></li>
-      <li><a href="#work">Work Experience</a></li>
+      <li><a href="#work">Experience</a></li>
       <li><a href="#education">Education</a></li>
-      <li><a href="#expertise">Technical Expertise</a></li>
+      <li><a href="#expertise">Expertise</a></li>
       <li><a href="#teaching">Teaching</a></li>
+      <li><a href="#honors">Honors</a></li>
+      <li><a href="#interests">Interests</a></li>
       <li><a href="#ai-news">AI News</a></li>
     </ul>
   </nav>
 
-  <!-- (Optional) Background layers -->
-  <div class="space-scene">
-    <div id="star-container"></div>
-    <div class="fog-layer fog-layer-1"></div>
-    <div class="fog-layer fog-layer-2"></div>
-    <div class="fog-layer fog-layer-3"></div>
+  <div class="apple-bg">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <div class="noise-overlay"></div>
   </div>
 
   <main>
-    <!-- HOME -->
     <section id="home" class="fade-in">
       <div id="siri-bubble-container">
         <div id="siri-bubble"></div>
@@ -51,215 +49,193 @@
 
       <div class="home-content">
         <h1>Henrik Abgaryan</h1>
-        <p><a href="mailto:henrik.abgaryan@dauphine.eu">henrik.abgaryan@dauphine.eu</a></p>
-        <!-- Container for the typed quote -->
+        <p><a href="mailto:henri.abgaryan@gmail.com">henri.abgaryan@gmail.com</a></p>
+        <p>Google Scholar | GitHub</p>
+        <p style="margin-top: 0.5rem;"><strong>Available for Summer 2026 Internships</strong></p>
         <p id="quote" style="margin-top: 1.5rem; font-style: italic;"></p>
       </div>
     </section>
 
-    <!-- BIO -->
     <section id="bio" class="fade-in">
       <h2>Bio</h2>
-      <p><strong>PhD Student at Lamsade LAB, PSL Dauphine, Paris, France.</strong></p>
+      <p><strong>PhD Student, LAMSADE PSL</strong></p>
+      <p>Expected Graduation: 2027</p>
       <p>
-        I specialize in advanced machine learning techniques for NP-hard combinatorial optimization problems.
-        My research focuses on large language models, reinforcement learning, and generative AI approaches to optimization.
-        My background spans text-to-image synthesis, extensive R&D endeavors, teaching responsibilities, 
-        and industry roles in deep learning.
+        AI Scientist and PhD Candidate specialized in LLM Reasoning for Combinatorial Optimization.
+        I build rigorous benchmarking frameworks (ACCORD, STARJOB) and scalable generative models.
+        Previously architected AI features for 150M+ users at Picsart, combining theoretical depth (Diffusion, GANs)
+        with production-grade engineering.
       </p>
-      <p><strong>Research Areas:</strong> Machine Learning, LLMs, RL for Combinatorial Optimization</p>
-      <p><strong>Supervisors:</strong></p>
-      <ul>
-        <li>Tristan Cazenave (<a href="mailto:tristan.cazenave@lamsade.dauphine.fr">tristan.cazenave@lamsade.dauphine.fr</a>)</li>
-        <li>Ararat Harutyunyan (<a href="mailto:ararat.harutyunyan@lamsade.dauphine.fr">ararat.harutyunyan@lamsade.dauphine.fr</a>)</li>
-      </ul>
-      <p>2023 - Present</p>
     </section>
 
-    <!-- PUBLICATIONS -->
     <section id="publications" class="fade-in">
-      <h2>Publications</h2>
+      <h2>Publication and Preprints</h2>
       <ul>
         <li>
-          <strong>ACCORD: Autoregressive Constraint-satisfying Generation for Combinatorial Optimization</strong><br />
-          H. Abgaryan<br />
-          <em>Under Review</em>, 2025.
+          <strong>[1] ACCORD: A large-scale open dataset and framework for constraint-aware LLMs</strong><br />
+          NeurIPS 2025 Differentiable Learning of Combinatorial Algorithms Workshop<br />
+          Authors: Henrik Abgaryan, Tristan Cazenave, Ararat Harutyunyan<br />
+          <em>Released ACCORD, a 90K instance dataset and evaluation framework spanning multiple NP-hard problems
+            (Knapsack, Bin Packing, TSP, VRP, JSSP). ACCORD fine-tuning (LLAMA 8B) reduces optimality gaps
+            from > 80% to as low as 0-12% across problem sizes, outperforming strong prompting baselines.</em>
         </li>
         <li>
-          <strong>STARJOB: Dataset for LLM-driven Job Shop Scheduling</strong><br />
-          H. Abgaryan, A. Harutyunyan, T. Cazenave<br />
-          <em>AAAI25 LLM4Plan (Oral)</em>, 2024.
-          <a href="https://arxiv.org/pdf/2503.01877" target="_blank">[PDF]</a>
+          <strong>[2] LLMs can Schedule</strong><br />
+          ECML PKDD 2025 DSO Workshop (Oral Presentation)<br />
+          Authors: Henrik Abgaryan, Tristan Cazenave, Ararat Harutyunyan<br />
+          <em>Demonstrated end-to-end LLM-based solving for NP-hard Job Shop Scheduling, with systematic evaluation
+            across instance sizes and baselines.</em>
         </li>
         <li>
-          <strong>ScheduleExpert: Graph Attention Meets Mixture-of-Experts for JSSP</strong><br />
-          H. Abgaryan<br />
-          <em>LION19 (Oral)</em>, 2023.
-          <a href="https://www.lamsade.dauphine.fr/~cazenave/papers/JobShopLION2025.pdf" target="_blank">[PDF]</a>
+          <strong>[3] STARJOB: An LLM-native dataset for Job Shop Scheduling</strong><br />
+          AAAI 2025 Workshop on LLMs for Planning (Oral Presentation)<br />
+          Authors: Henrik Abgaryan, Tristan Cazenave, Ararat Harutyunyan<br />
+          <em>Released STARJOB, a 120K instance dataset formatted for LLM fine-tuning on Job Shop Scheduling.
+            To our knowledge, the first large-scale LLM-native JSSP dataset designed specifically for supervised
+            fine-tuning.</em>
         </li>
         <li>
-          <strong>LLMs can Schedule</strong><br />
-          H. Abgaryan, A. Harutyunyan, T. Cazenave<br />
-          <em>arXiv preprint arXiv:2408.06993</em>, 2024.
-          <a href="https://arxiv.org/pdf/2408.06993" target="_blank">[PDF]</a>
+          <strong>[4] SchedulExpert: Graph Attention Meets Mixture-of-Experts for JSSP</strong><br />
+          Learning and Intelligent Optimization (LION 19), 2025 (Oral Presentation)<br />
+          Authors: Henrik Abgaryan, Tristan Cazenave, Ararat Harutyunyan
         </li>
         <li>
-          <strong>Randomized Greedy Sampling for JSSP</strong><br />
-          H. Abgaryan, T. Cazenave<br />
-          <em>The 18th Learning and Intelligent Optimization Conference (LION18)</em>, 2025.
-          <a href="https://www.lamsade.dauphine.fr/~cazenave/papers/JobShopLION2024.pdf" target="_blank">[PDF]</a>
-        </li>
-        <li>
-          <strong>House Allocation with Randomly Generated Preference Lists</strong><br />
-          H. Abgaryan, A. Harutyunyan, T.N. Le<br />
-          2022.
-          <a
-            href="https://hal.science/hal-03779779v1/file/House_allocation_with_random_lists_with_Spring_Questions_and_conflict_of_interest.pdf"
-            target="_blank"
-            >[PDF]</a
-          >
+          <strong>[5] Randomized Greedy Sampling for the Job Shop Scheduling Problem</strong><br />
+          Learning and Intelligent Optimization (LION 18), 2024 (Oral Presentation)<br />
+          Authors: Henrik Abgaryan, Tristan Cazenave, Ararat Harutyunyan
         </li>
       </ul>
     </section>
 
-    <!-- TALKS -->
     <section id="talks" class="fade-in">
-      <h2>Talks</h2>
+      <h2>Summer Schools & Talks</h2>
       <ul>
         <li>
-          Presented <em>Randomized Greedy Search for JSSP</em> at the
-          <strong>18th Learning and Intelligent Optimization Conference</strong><br />
-          June 11, 2024 | Ischia, Italy
+          <strong>Data Science Meets Combinatorial Optimisation Euro PhD School</strong><br />
+          Technical University of Eindhoven, The Netherlands. (2025)<br />
+          <em>Participated in advanced doctoral training at the intersection of data science and combinatorial
+            optimisation.</em>
         </li>
         <li>
-          Speaker at <strong>Lamsade Doctoral Spring School</strong><br />
-          École du Luat, Écouen-Ezanville, France
+          <strong>Talk: "GNNs for Job Shop Scheduling Problem"</strong><br />
+          Lamsade Doctoral Spring School, Ecole du Luat, Ecouen-Ezanville, France. (2024)<br />
+          <em>Presented research on applying Graph Neural Networks to the Job Shop Scheduling Problem.</em>
         </li>
       </ul>
     </section>
 
-    <!-- WORK EXPERIENCE -->
     <section id="work" class="fade-in">
-      <h2>Work Experience</h2>
+      <h2>Industry Experience</h2>
       <ul>
         <li>
-          <strong>Current PhD student in Paris Dauphine PSL</strong><br />
-          <em>Working on intersection of Combinatorial Optimization and AI</em><br />
-          2023 - present 
-          
-        </li>
-        <li>
-          <strong>PICSART</strong><br />
-          <em>Machine Learning Scientist at Artificial Intelligence Department</em><br />
-          2021
+          <strong>Machine Learning Scientist, Picsart AI</strong><br />
+          <em>2021-2023</em>
           <ul>
-            <li>35+ AI projects in production and R&D.</li>
-            <li>Team lead for text-to-image personalization (few-shot learning); features used by 150 million monthly active users.</li>
-            <li>Working on Text-to-Image Synthesis, Image to Image Synthesis, SOTA model finetuning.</li>
-            <li>Large-Scale Training, GANs and VAEs.</li>
-            <li>Experienced with open-source AI models, particularly in image generation (e.g., Stable Diffusion).</li>
-            <li>Utilized techniques like LoRA for model optimization.</li>
-            <li>PyTorch, TensorFlow production systems.</li>
+            <li>Generative AI: Engineered personalized text-to-image systems (LoRA) and geometry-preserving GANs to
+              ensure subject consistency and facial fidelity.</li>
+            <li>Mobile Optimization: Designed Teacher-Student distillation frameworks to compress high-capacity GANs for
+              real-time, on-device edge deployment.</li>
+            <li>Classical CV: Optimized performance on mobile CPUs by engineering gradient mapping pipelines for
+              material transfer, eliminating neural overhead.</li>
+            <li>Scale: Architected 4-bit quantization pipelines, reducing end-to-end latency by 12% for 150M+ monthly
+              active users.</li>
+            <li>Leadership: Transitioned 35+ research prototypes into production environments using large-scale
+              distributed training systems.</li>
           </ul>
         </li>
         <li>
-          <strong>Synergy International Systems</strong><br />
-          <em>Software Engineer Intern</em><br />
-          2019
+          <strong>Software Engineer Intern, Synergy International Systems</strong><br />
+          <em>Software Engineering & Database Systems (2019)</em>
           <ul>
-            <li>Backend development using JAVA and Python frameworks.</li>
-            <li>Database development using MS-SQL.</li>
-            <li>Object-Oriented Programming (OOP).</li>
+            <li>Engineered core software components and designed a comprehensive database system to optimize business
+              operations.</li>
           </ul>
         </li>
       </ul>
     </section>
 
-    <!-- EDUCATION -->
     <section id="education" class="fade-in">
       <h2>Education</h2>
       <ul>
         <li>
           <strong>PhD, Artificial Intelligence</strong><br />
-          PSL Dauphine, Paris<br />
-          2023 - Present
+          LAMSADE, Université Paris-Dauphine PSL<br />
+          2023-Present
           <ul>
-            <li>ML for combinatorial optimization</li>
-            <li>Supervisors: Tristan Cazenave, Ararat Harutyunyan</li>
+            <li>Focus: Machine Learning for Combinatorial Optimization</li>
+            <li>Advisors: Tristan Cazenave, Ararat Harutyunyan</li>
           </ul>
         </li>
         <li>
-          <strong>Master's of Computer Science</strong><br />
-          M2 AI Systems and Data, PSL Dauphine<br />
-          Paris, France | 2022
+          <strong>MSc, Computer Science (AI Systems and Data)</strong><br />
+          Université Paris-Dauphine PSL<br />
+          2022
           <ul>
-            <li>One of Top 50 of world universities according to Shanghai Ranking.</li>
-            <li>Master's Thesis: "Optimization and Fine Tuning of Large Text to Image Models".</li>
-            <li><strong>PSL Excellence Scholarship</strong> recipient</li>
+            <li>Graduated with Distinction</li>
           </ul>
         </li>
         <li>
-          <strong>Bachelor of Computer Science</strong><br />
+          <strong>B.S. in Computer Science</strong><br />
           American University of Armenia<br />
           2017
           <ul>
-            <li>Literature Survey: Fireflies curing Fault-Tolerance in Robotic Swarm Systems.</li>
-            <li>Literature Survey: Community Detection in Mixed and Temporal Networks.</li>
-            <li>Capstone: Graph Diameter Shrinking Approaches for Pseudo-Random Graphs.</li>
-            <li><strong>National Academic Scholarship</strong> recipient</li>
+            <li>Relevant coursework: CS104 Linear Algebra, CS111 Discrete Mathematics, CS107 Probability, CS108
+              Statistics, CS213 Optimization, CS392 Special Topics in CS: Distributed Algorithms</li>
           </ul>
         </li>
       </ul>
     </section>
 
-    <!-- TECHNICAL EXPERTISE -->
     <section id="expertise" class="fade-in">
       <h2>Technical Expertise</h2>
       <ul>
-        <li><strong>Areas:</strong> LLMs, RL, Generative AI, Combinatorial Optimization</li>
-        <li><strong>Deep Learning:</strong> Model design, large-scale training, parameter-efficient tuning</li>
-        <li><strong>Tools:</strong> PyTorch, TensorFlow, JAX, Hugging Face, distributed training</li>
+        <li><strong>Core AI:</strong> LLM Reasoning (CoT/ToT), GRPO, Reinforcement Learning, Graph Neural Networks
+          (GNNs), Combinatorial Optimization.</li>
+        <li><strong>Software & Tools:</strong> PyTorch, Tensorflow, JAX, Docker, Multi-GPU Training.</li>
+        <li><strong>Programming Languages:</strong> Python, C++</li>
+        <li><strong>Languages:</strong> English, French, Armenian (Native), Russian</li>
       </ul>
     </section>
 
-    <!-- TEACHING -->
     <section id="teaching" class="fade-in">
-      <h2>Teaching</h2>
+      <h2>Teaching and Leadership</h2>
       <ul>
         <li>
-          <strong>Teaching Associate:</strong> Introduction to ML<br />
-          M1 MIAGE Apprentissage, Paris Dauphine PSL<br />
-          September 2024 - February 2025 | Paris, France
+          <strong>Université Paris-Dauphine PSL (2023-2026)</strong><br />
+          Teaching Associate & Assistant<br />
+          <ul>
+            <li>Graduate (M1): Artificial Intelligence, Introduction to ML (MIAGE Apprentissage).</li>
+            <li>Undergraduate (L2): Data Analytics 2, Algorithms and Programming 2, Computer Tools (HTML/Excel).</li>
+          </ul>
         </li>
         <li>
-          <strong>Teaching Associate:</strong> Artificial Intelligence<br />
-          M1 MIAGE Apprentissage, Paris Dauphine PSL<br />
-          January 2024 - May 2025 | Paris, France
-        </li>
-        <li>
-          <strong>Teaching Associate:</strong> Outils en informatique (Excel)<br />
-          Paris Dauphine PSL<br />
-          January 2024 - May 2025 | Paris, France
-        </li>
-        <li>
-          <strong>Teaching Associate:</strong> Outils en informatique (Internet, HTML)<br />
-          Paris Dauphine PSL<br />
-          January 2024 - May 2025 | Paris, France
-        </li>
-        <li>
-          <strong>Teaching Associate:</strong> Causal Inference<br />
-          American University of Armenia<br />
-          January 2022 - May 2022 | Yerevan, Armenia
-        </li>
-        <li>
-          <strong>Teaching Assistant:</strong> Data Visualization<br />
-          American University of Armenia<br />
-          September 2021 - December 2021 | Yerevan, Armenia
+          <strong>American University of Armenia (2022)</strong><br />
+          Teaching Associate & Assistant<br />
+          <ul>
+            <li>Undergraduate: Causal Inference, Data Visualization.</li>
+          </ul>
         </li>
       </ul>
     </section>
 
-    <!-- AI NEWS SECTION -->
+    <section id="honors" class="fade-in">
+      <h2>Honors and Awards</h2>
+      <ul>
+        <li>Dauphine Doctoral Scholarship (2023-2026)</li>
+        <li>1st Place, IASD Master's DL Competition: Designed a parameter-efficient neural network for Go that
+          outperformed peer models in a round-robin tournament. (2022)</li>
+        <li>PSL Excellence Scholarship (awarded to top students based on GPA) (2022)</li>
+        <li>National Academic Scholarship (2017)</li>
+        <li>Oral selections: AAAI 2025 LLM4Plan; ECML PKDD 2025 DSO; LION 18 & 19</li>
+        <li>Reviewer: NeurIPS 2024, NeurIPS 2025</li>
+      </ul>
+    </section>
+
+    <section id="interests" class="fade-in">
+      <h2>Interests</h2>
+      <p>GYM, Painting, Swimming, Running, Healthy Lifestyle.</p>
+    </section>
+
     <section id="ai-news" class="fade-in">
       <h2>AI News</h2>
       <p>Latest AI news from around the web</p>
@@ -267,7 +243,7 @@
     </section>
   </main>
 
-  <!-- Link to external JS -->
   <script src="main.js"></script>
 </body>
+
 </html>
