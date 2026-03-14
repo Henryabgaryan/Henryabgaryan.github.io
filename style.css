@@ -3,7 +3,7 @@
 /* Smooth scroll + offset so section headers aren't covered by sticky nav */
 html {
     scroll-padding-top: 10vh;
-    scroll-behavior: smooth;
+    /* Removed natural scroll-behavior: smooth to utilize custom momentum scrolling in JS */
 }
 
 * {
@@ -12,12 +12,24 @@ html {
     box-sizing: border-box;
 }
 
+:root {
+    --bg-color: #fbfbfd;
+    --text-primary: #1d1d1f;
+    --text-secondary: #86868b;
+    --apple-blue: #06c;
+    --apple-blue-hover: #004499;
+    --card-bg: rgba(255, 255, 255, 0.55);
+    --card-border: rgba(255, 255, 255, 0.4);
+    --glass-blur: blur(32px) saturate(180%);
+    --shadow-sm: 0 4px 20px rgba(0, 0, 0, 0.03);
+    --shadow-md: 0 8px 32px rgba(0, 0, 0, 0.05);
+    --shadow-hover: 0 16px 48px rgba(0, 0, 0, 0.08);
+}
+
 /* BODY */
 body {
-    background-color: #fbfbfd;
-    /* Apple's off-white */
-    color: #1d1d1f;
-    /* Apple's core text color */
+    background-color: var(--bg-color);
+    color: var(--text-primary);
     font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
     font-size: 1.0625rem;
     /* 17px base, typical for Apple text */
@@ -118,15 +130,15 @@ body {
 
 /* NAVBAR */
 .navbar {
-    background: rgba(255, 255, 255, 0.65);
-    backdrop-filter: blur(24px) saturate(180%);
-    -webkit-backdrop-filter: blur(24px) saturate(180%);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.04);
+    background: rgba(251, 251, 253, 0.75);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: var(--shadow-sm);
     position: sticky;
     top: 0;
     z-index: 1000;
-    padding: 0.8rem 0;
+    padding: 0.9rem 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -137,24 +149,31 @@ body {
     list-style: none;
     display: flex;
     flex-direction: row;
-    gap: 2.5rem;
+    gap: 1.5rem;
 }
 
 .navbar a {
-    padding: 0.2rem 0;
-    color: #1d1d1f;
+    padding: 0.5rem 1rem;
+    color: var(--text-primary);
     text-decoration: none;
-    font-size: 0.85rem;
-    font-weight: 400;
+    font-size: 0.9rem;
+    font-weight: 500;
     letter-spacing: -0.01em;
-    opacity: 0.8;
-    transition: opacity 0.3s ease, color 0.3s ease;
+    opacity: 0.7;
+    border-radius: 99px;
+    transition: opacity 0.3s ease, color 0.3s ease, background 0.3s ease;
 }
 
-.navbar a:hover,
+.navbar a:hover {
+    opacity: 1;
+    color: var(--text-primary);
+    background: rgba(0, 0, 0, 0.04);
+}
+
 .navbar a.active {
     opacity: 1;
-    color: #000;
+    color: var(--text-primary);
+    background: rgba(0, 0, 0, 0.06);
 }
 
 /* HAMBURGER MENU ICON (hidden on large screens) */
@@ -200,20 +219,50 @@ main {
 /* SECTIONS */
 section {
     position: relative;
-    margin: 6rem 0;
+    margin: 8rem 0; /* More breathing room for iOS feel */
     width: 100%;
     max-width: 980px;
-    /* Standard Apple wrapper size */
-    opacity: 0;
-    transform: translateY(60px) scale(0.98);
-    transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-    background-color: transparent;
 }
 
-section.fade-in.visible {
-    opacity: 1;
-    transform: translateY(0) scale(1);
+/* Staggered entry animation */
+@keyframes iosFadeUp {
+    0% {
+        opacity: 0;
+        transform: translateY(40px) scale(0.98);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
+
+section.fade-in > h2,
+section.fade-in > p,
+section.fade-in > div:not(.home-content):not(#siri-bubble-container),
+section.fade-in > ul > li {
+    opacity: 0; /* hidden before intersecting */
+}
+
+section.fade-in.visible > h2,
+section.fade-in.visible > p,
+section.fade-in.visible > div:not(.home-content):not(#siri-bubble-container),
+section.fade-in.visible > ul > li {
+    animation: iosFadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Stagger items inside the section */
+section.fade-in.visible > h2 { animation-delay: 0.05s; }
+section.fade-in.visible > p { animation-delay: 0.1s; }
+section.fade-in.visible > ul > li:nth-child(1) { animation-delay: 0.15s; }
+section.fade-in.visible > ul > li:nth-child(2) { animation-delay: 0.25s; }
+section.fade-in.visible > ul > li:nth-child(3) { animation-delay: 0.35s; }
+section.fade-in.visible > ul > li:nth-child(4) { animation-delay: 0.45s; }
+section.fade-in.visible > ul > li:nth-child(5) { animation-delay: 0.55s; }
+section.fade-in.visible > ul > li:nth-child(6) { animation-delay: 0.65s; }
+section.fade-in.visible > ul > li:nth-child(7) { animation-delay: 0.75s; }
+section.fade-in.visible > ul > li:nth-child(8) { animation-delay: 0.85s; }
+section.fade-in.visible > ul > li:nth-child(9) { animation-delay: 0.95s; }
+section.fade-in.visible > ul > li:nth-child(10) { animation-delay: 1.05s; }
 
 /* HOME SECTION */
 #home {
@@ -226,18 +275,32 @@ section.fade-in.visible {
     margin-top: 2rem;
 }
 
+.home-content > * {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUpHero 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeUpHero {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .home-content h1 {
     font-size: 5rem;
     font-weight: 700;
     letter-spacing: -0.05em;
     line-height: 1.05;
     margin-bottom: 0.8rem;
-    background: linear-gradient(110deg, #1d1d1f 40%, rgba(29, 29, 31, 0.45));
+    background: linear-gradient(110deg, var(--text-primary) 40%, rgba(29, 29, 31, 0.45));
     background-size: 200% auto;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: shine 6s linear infinite;
+    animation: shine 6s linear infinite, fadeUpHero 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0s, 0.1s;
 }
 
 @keyframes shine {
@@ -256,25 +319,29 @@ section.fade-in.visible {
 
 .home-content p {
     font-size: 1.25rem;
-    color: #86868b;
+    color: var(--text-secondary);
     font-weight: 400;
     letter-spacing: -0.011em;
     margin-bottom: 0.5rem;
 }
 
+.home-content p:nth-of-type(1) { animation-delay: 0.2s; }
+.home-content p:nth-of-type(2) { animation-delay: 0.3s; }
+.home-content p:nth-of-type(3) { animation-delay: 0.4s; }
+.home-content p:nth-of-type(4) { animation-delay: 0.5s; }
+
 .home-content p a {
-    color: #06c;
-    /* Apple Blue Link */
+    color: var(--apple-blue);
     text-decoration: none;
-    transition: color 0.2s ease;
+    transition: color 0.2s ease, opacity 0.2s ease;
 }
 
 .home-content p a:hover {
-    color: #004499;
+    color: var(--apple-blue-hover);
 }
 
 .home-content p strong {
-    color: #1d1d1f;
+    color: var(--text-primary);
     font-weight: 500;
 }
 
@@ -282,11 +349,22 @@ section.fade-in.visible {
 #siri-bubble-container {
     position: relative;
     margin-bottom: 3rem;
-    width: 200px;
-    height: 200px;
+    width: 260px;
+    height: 260px;
     display: flex;
     justify-content: center;
     align-items: center;
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+    animation: popInSiri 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.1s;
+}
+
+@keyframes popInSiri {
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
 }
 
 /* The bubble */
@@ -358,12 +436,12 @@ section.fade-in.visible {
 
 /* HEADINGS */
 h2 {
-    margin-bottom: 2.5rem;
-    font-size: 2.8rem;
+    margin-bottom: 3rem;
+    font-size: 3rem;
     font-weight: 700;
     letter-spacing: -0.03em;
     text-align: center;
-    background: linear-gradient(110deg, #1d1d1f 20%, #86868b 80%);
+    background: linear-gradient(110deg, var(--text-primary) 30%, var(--text-secondary) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -373,22 +451,39 @@ h2 {
 /* LISTS & CONTENT BLOCKS */
 ul {
     list-style-type: none;
-    /* Cleaner look, no native bullets */
     padding-left: 0;
 }
 
+/* Make grid sections */
+#work > ul, #education > ul, #teaching > ul, #honors > ul, #talks > ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
 section>ul>li {
-    background: rgba(255, 255, 255, 0.6);
-    backdrop-filter: blur(24px) saturate(180%);
-    -webkit-backdrop-filter: blur(24px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    border-radius: 20px;
+    background: var(--card-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--card-border);
+    border-radius: 24px;
     padding: 2.5rem;
     margin-bottom: 1.5rem;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+    box-shadow: var(--shadow-md);
     position: relative;
     overflow: hidden;
     transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+#publications > ul > li {
+    margin-bottom: 1.5rem;
+}
+
+/* Adjust card spacing inside the grid so margins don't double up */
+#work > ul > li, #education > ul > li, #teaching > ul > li, #honors > ul > li, #talks > ul > li {
+    margin-bottom: 0;
 }
 
 /* Optional noise for cards */
@@ -411,48 +506,58 @@ section>ul>li>* {
 }
 
 section>ul>li:hover {
-    transform: translateY(-8px) scale(1.01);
-    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.08);
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: var(--shadow-hover);
+    border-color: rgba(255, 255, 255, 0.8);
 }
 
 ul ul {
     list-style-type: none;
-    margin-top: 1rem;
+    margin-top: auto;
     padding-left: 0;
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
     /* Divider */
-    padding-top: 1rem;
+    padding-top: 1.2rem;
+    flex-grow: 1;
 }
 
 ul ul li {
     margin-bottom: 0.8rem;
-    font-size: 1rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
     color: #424245;
     /* Dark gray for secondary details */
     position: relative;
-    padding-left: 1.5em;
+    padding-left: 1.2rem;
 }
 
 /* Custom minimal bullets for nested items */
 ul ul li::before {
-    content: "•";
-    color: #86868b;
+    content: "";
+    background-color: var(--text-secondary);
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
     position: absolute;
     left: 0;
-    font-size: 1.2em;
-    top: -2px;
+    top: 0.6em;
+    opacity: 0.6;
 }
 
 strong {
     font-weight: 600;
-    color: #1d1d1f;
+    color: var(--text-primary);
+    font-size: 1.15rem;
+    display: inline-block;
+    margin-bottom: 0.2rem;
+    line-height: 1.3;
 }
 
 em {
     font-style: normal;
-    color: #86868b;
+    color: var(--text-secondary);
     display: block;
-    margin-top: 0.3rem;
+    margin-bottom: 1.5rem;
     font-size: 0.95rem;
 }
 
@@ -467,16 +572,16 @@ em {
 }
 
 #ai-news-list li {
-    background: rgba(255, 255, 255, 0.6);
-    backdrop-filter: blur(24px) saturate(180%);
-    -webkit-backdrop-filter: blur(24px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    background: var(--card-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--card-border);
     border-radius: 20px;
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+    box-shadow: var(--shadow-md);
     transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1);
     position: relative;
     overflow: hidden;
@@ -502,7 +607,8 @@ em {
 
 #ai-news-list li:hover {
     transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.08);
+    box-shadow: var(--shadow-hover);
+    border-color: rgba(255, 255, 255, 0.8);
 }
 
 #ai-news-list img {
@@ -515,15 +621,16 @@ em {
 }
 
 #ai-news-list a {
-    color: #1d1d1f;
+    color: var(--text-primary);
     text-decoration: none;
     font-weight: 500;
     font-size: 1.05rem;
     line-height: 1.3;
+    transition: color 0.2s ease;
 }
 
 #ai-news-list a:hover {
-    color: #06c;
+    color: var(--apple-blue);
 }
 
 /* Utility */

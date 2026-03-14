@@ -8,7 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Intersection Observer for fade-in sections & updating active nav link
     const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('.navbar a');
-    const options = { threshold: 0.6 };
+    // Lower threshold and adjust rootMargin so animations trigger slightly earlier for big sections
+    const options = { threshold: 0.15, rootMargin: '0px 0px -50px 0px' };
   
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -24,6 +25,59 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
     }, options);
+
+    // ================================================
+    //   Custom Smooth Scroll for iOS-like momentum
+    // ================================================
+    document.querySelectorAll('.navbar a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+        if (!targetElement) return;
+        
+        // Update active class immediately
+        document.querySelectorAll('.navbar a').forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+
+        // Close mobile menu if open
+        const navbar = document.querySelector('.navbar');
+        const menuIcon = document.getElementById('menuIcon');
+        if (navbar.classList.contains('open')) {
+            navbar.classList.remove('open');
+            menuIcon.classList.remove('change');
+        }
+
+        const navHeight = document.querySelector('.navbar').offsetHeight;
+        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight - 10;
+        const startPosition = window.pageYOffset;
+        const distance = targetPosition - startPosition;
+        const duration = 1200; // 1.2s for butter smooth
+        let start = null;
+
+        // Custom easeInOutQuart (iOS-like feel)
+        function easeInOutQuart(t, b, c, d) {
+            t /= d/2;
+            if (t < 1) return c/2*t*t*t*t + b;
+            t -= 2;
+            return -c/2 * (t*t*t*t - 2) + b;
+        }
+
+        function animation(currentTime) {
+            if (start === null) start = currentTime;
+            const timeElapsed = currentTime - start;
+            const progress = easeInOutQuart(timeElapsed, 0, 1, duration);
+            
+            window.scrollTo(0, startPosition + (distance * progress));
+            
+            if (timeElapsed < duration) {
+                requestAnimationFrame(animation);
+            }
+        }
+        
+        requestAnimationFrame(animation);
+      });
+    });
   
     sections.forEach((section) => observer.observe(section));
   
